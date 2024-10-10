@@ -1,0 +1,6 @@
+[submodule "sensors-management-frontend"]
+	path = sensors-management-frontend
+	url = https://github.com/kx0101/sensors-management-frontend
+[submodule "sensors-management-backend"]
+	path = sensors-management-backend
+	url = https://github.com/kx0101/sensors-management-backend

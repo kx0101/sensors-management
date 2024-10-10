@@ -1,0 +1,38 @@
+version: '3'
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+    environment:
+      SERVER_URL: "${SERVER_URL}"
+    networks:
+      - app-network
+
+  backend:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - "${PORT}:3000"
+    environment:
+      PORT: "${PORT}"
+      JWT_HEADER: "${JWT_HEADER}"
+      JWT_SECRET_KEY: "${JWT_SECRET_KEY}"
+      MONGODB_URL: "${MONGODB_URL}"
+      MONGODB_DBNAME: "${MONGODB_DBNAME}"
+      MONGODB_REPLICASET: "${MONGODB_REPLICASET}"
+      MONGODB_USERNAME: "${MONGODB_USERNAME}"
+      MONGODB_PASSWORD: "${MONGODB_PASSWORD}"
+      GATEWAY_PORT: "${GATEWAY_PORT}"
+      GATEWAY_URI: "${GATEWAY_URI}"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
