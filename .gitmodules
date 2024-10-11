@@ -4,3 +4,6 @@
 [submodule "sensors-management-backend"]
 	path = sensors-management-backend
 	url = https://github.com/kx0101/sensors-management-backend
+[submodule "WT32_ETH01_EXAMPLE"]
+	path = WT32_ETH01_EXAMPLE
+	url = https://github.com/kx0101/WT32_ETH01_EXAMPLE
